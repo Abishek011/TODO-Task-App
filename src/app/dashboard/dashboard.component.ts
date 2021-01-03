@@ -31,7 +31,6 @@ export class DashboardComponent implements OnInit {
     window.location.reload();
   }
 
-
   ngOnInit(): void {
   }
 
