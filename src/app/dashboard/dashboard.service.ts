@@ -14,6 +14,8 @@ export class DashboardService {
   private addTask_url="https://app--todo.herokuapp.com/user/dashBoard/addTask";
 
   private deleteTask_url="https://app--todo.herokuapp.com/user/dashBoard/deleteTask";
+  
+  private changeTaskStatus_url="https://app--todo.herokuapp.com/user/dashBoard/changeTaskStatus";
 
   
   userAuthorizationToken=localStorage.getItem('userAuthorizationToken');
@@ -42,6 +44,13 @@ export class DashboardService {
       taskName:taskName,
     }
     return this.http.delete(this.deleteTask_url,this.httpOptions);
+  }
+
+  changeTaskStatus(taskName){
+    return this.http.post(this.changeTaskStatus_url,{
+      userAuthCookie :this.userAuthorizationToken,
+      taskName:taskName,
+    },this.httpOptions);
   }
   
 }

@@ -8,6 +8,8 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+  isNavigated:boolean;
+
   private signUp_url="https://app--todo.herokuapp.com/user";
 
   private logIn_url="https://app--todo.herokuapp.com/user/login";

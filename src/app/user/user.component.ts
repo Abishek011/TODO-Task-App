@@ -58,7 +58,15 @@ export class UserComponent implements OnInit {
     })
   }
 
+  refreshOnce(){
+    window.location.reload();
+  }
+
   ngOnInit(): void {
+    if(this.userService.isNavigated)
+    {
+      this.refreshOnce();
+    }
   }
 
 }

@@ -32,7 +32,7 @@
           <div class="container clearfix">
             <div class="people-list" id="people-list">
               <div class="search">
-                <input type="text" placeholder="search" />
+                <input type="text" placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
                 <i class="fa fa-search"></i>
               </div>
               <ul>
@@ -44,11 +44,11 @@
                     <div class="about">
                       <div class="name">{{task.taskName}}</div>
                       <div class="status">
-                        <i class="fa fa-circle online"></i> online
+                        <i class="fa fa-circle online"></i> {{task.taskStatus}}
                       </div>
                     </div>
                   </li>
-                </div>
+                </div><!-- hegkhefhsgsedfhgjs -->
               </ul>
             </div>
             <div class="chat">

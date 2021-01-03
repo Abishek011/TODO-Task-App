@@ -1,5 +1,9 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { allowedNodeEnvironmentFlags } from 'process';
+import { UserComponent } from 'src/app/user/user.component';
+import { UserService } from 'src/app/user/user.service';
 import { DashboardComponent } from '../dashboard.component';
 import { DashboardService } from '../dashboard.service';
 
@@ -10,7 +14,10 @@ import { DashboardService } from '../dashboard.service';
 })
 export class ViewTaskComponent implements OnInit {
 
-  constructor(private dashboard:DashboardComponent,private dashboardService:DashboardService) { }
+  constructor(private dashboard:DashboardComponent,
+    private dashboardService:DashboardService,
+    private userService:UserService,
+    private router:Router) { }
 
   tasks;
 
@@ -41,14 +48,12 @@ export class ViewTaskComponent implements OnInit {
     this.currentTaskName=task.taskName;
     this.currentTaskDescription=task.taskDescription;
     this.currentTaskAddedTime=task.taskAddedTime;
-    this.currentTaskStatus="Completed";//task.taskStatus;
+    this.currentTaskStatus=task.taskStatus;
     if(this.currentTaskStatus.includes("Not Completed"))
     {
-      this.isDone=false;
       this.taskStatus="Mark as Completed";
     }
     else{
-      this.isDone=true;
       this.taskStatus="Mark as not completed"; 
     }
   }
@@ -57,26 +62,41 @@ export class ViewTaskComponent implements OnInit {
   taskStatus;
 
   changeTaskStatus(){
-    if(this.isDone){
-      this.currentTaskStatus="Not Completed";
-    this.isDone=!this.isDone;
-    this.taskStatus="Mark as done";
-    }else{
-      this.currentTaskStatus="Completed";
-      this.isDone=!this.isDone;
-      this.taskStatus="Mark as not completed"; 
-    }
-    console.log(this.taskStatus)
+    this.dashboardService.changeTaskStatus(this.currentTaskName).subscribe(data=>{
+      var temp;
+      temp=data.body;
+      if(temp.Message.includes("Task status updated"))
+      {
+        window.location.reload();
+      }
+    });
+    
   }
+
+  searchTerm;
+  taskCopy;
+
+  search(): void {
+    let term = this.searchTerm;
+    this.tasks = this.taskCopy.filter(function(tag) {
+        return tag.taskName.includes(term);
+    }); 
+    this.viewSelectedTask(this.tasks[0]);
+}
 
   ngOnInit(): void {
     this.dashboardService.viewTasks().subscribe(data=>{
       this.tasks=data.body;
       console.log(this.tasks);
       this.tasks=this.tasks.tasks;
+      this.taskCopy=this.tasks;
       this.viewSelectedTask(this.tasks[0]);
-    },error=>{
-      console.log(error);
+    },response=>{
+      if(response.status==401){
+        alert("Please login..");
+        this.router.navigate(["user"]);
+        this.userService.isNavigated=true;
+      }
     })
   }
 
