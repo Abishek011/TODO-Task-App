@@ -93,7 +93,6 @@ export class ViewTaskComponent implements OnInit {
       this.viewSelectedTask(this.tasks[0]);
     },response=>{
       if(response.status==401){
-        alert("Please login..");
         this.router.navigate(["user"]);
         this.userService.isNavigated=true;
       }
