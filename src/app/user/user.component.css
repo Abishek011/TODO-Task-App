@@ -1,0 +1,225 @@
+*
+{
+	margin:0;
+	padding:0;
+	font-family: sans-serif; 
+}
+
+.hero
+{
+	/* background: url(https://images.unsplash.com/photo-1539364235771-5d3d22dcca67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+ */
+	background:linear-gradient(to right,#0000008a,#0000008c);
+ 	height: 99%;
+	width: 99%;
+	background-position: center;
+	background-size:cover;
+  position:absolute;
+}
+
+.registerform
+{
+	width: 380px;
+	height: 480px;
+	position:sticky;
+	bottom: 10px;
+	margin:6% auto;
+	background: linear-gradient(to right,#0000004a,#000000);
+	padding:5px;
+	overflow: hidden;
+
+}
+
+.button
+{
+	top:10%;
+	background:#858789;
+	width:220px;
+	margin:35px auto;
+	position:relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+
+.toggle
+{
+	color: white;
+	padding:10px 30px;
+	cursor:pointer;
+	background:transparent;
+	border:0;
+	outline:none;
+	position:relative ;
+}
+
+.bttn1
+{
+	top:0;
+	left:0;
+	position: absolute;
+	width: 110px;
+	height:100%;
+  background:linear-gradient(to right,#5a5757db,#212527ab);
+	border-radius: 30px;
+	transition: .5s;
+
+}
+
+.bttn2
+{
+	top:0;
+	left:110px;
+	position: absolute;
+	width: 110px;
+	height:100%;
+  background:linear-gradient(to right,#5a5757db,#212527ab);
+	border-radius: 30px;
+	transition: .5s;
+
+}
+
+
+.social{
+	margin: 8px auto;
+	text-align: center;
+}
+.social img{
+	width: 80px;
+	margin: 0 12px;
+	box-shadow: 0 0 20px 0 #7f7f7f3d;
+	border-radius: 60%;
+}
+.form
+{
+	top:180px;
+	position:absolute;
+	width:280px;
+	transition: .5s;
+}
+
+.input
+{
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #f4efef;
+	background : transparent;
+	color: white;
+
+}
+
+::-webkit-input-placeholder {
+       color: white;
+    }
+.btn
+{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: 10%;
+	background: linear-gradient(to right,#5a5757db,#212527ab);
+	border:0;
+	outline: none;	
+	border-radius: 30px;
+	color:white;
+}
+
+#login
+{
+	left:50px;
+}
+#register
+{
+	left:450px;
+}
+.textcheck
+{
+	color: white;
+}
+/* Circle */
+/*
+.icon-button {
+
+	background-color:#black;
+	border-radius: 3.6rem;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 2.0rem;
+	height: 3.6rem;
+	line-height: 3.6rem;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	-webkit-transition: none;
+   	-moz-transition: none;
+     -o-transition: none;
+        transition: none;
+
+	width: 3.6rem;
+}
+
+ .icon-button span {
+	border-radius: 0;
+	display: block;
+	height: 0;
+	left: 50%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	       
+	width: 0;
+}
+.icon-button:hover span {
+	width: 3.6rem;
+	height: 3.6rem;
+	border-radius: 3.6rem;
+	margin: -1.8rem;
+}
+.twitter span {
+	background-color: #4099ff;
+}
+.facebook span {
+	background-color: #3B5998;
+}
+.google-plus span {
+	background-color: #db5a3c;
+}
+
+Icons
+.icon-button i {
+	background: none;
+	color: white;
+	height: 3.6rem;
+	left: 0;
+	line-height: 3.6rem;
+	position: absolute;
+	top: 0;
+	-webkit-transition: all 1s;
+	   -moz-transition: all 1s;
+	     -o-transition: all 1s;
+	        transition: all 1s;
+	width: 3.6rem;
+	z-index: 10;
+}
+ *//* .icon-button .icon-twitter {
+	color: #4099ff;
+}
+.icon-button .icon-facebook {
+	color: #3B5998;
+}
+.icon-button .icon-google-plus {
+	color: #db5a3c;
+}
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-google-plus {
+	color: white;
+} */

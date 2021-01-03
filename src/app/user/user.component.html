@@ -1,0 +1,28 @@
+<div [ngClass]="'hero'">
+    <div [ngClass]="'registerform'">
+        <div [ngClass]="'button'">
+            <div [ngClass]="{'bttn1':loginSwitch,'bttn2':!loginSwitch}"></div>
+            <button type="button"  [ngClass]="'toggle'" (click)="login()">Log In</button>
+            <button type="button"  [ngClass]="'toggle'" (click)="register()">Sign Up</button><br>
+        </div>
+        <form ngNativeValidate #log="ngForm" (ngSubmit)="onLogIn(log.value)" id="login" [ngClass]="'form'">
+            <input type="text" name="emailId" ngModel [ngClass]="'input'" placeholder="Email Id" required>
+            <input type="password" name="password" ngModel [ngClass]="'input'" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" required >
+            <br><br>
+            <button type="submit" [ngClass]="'btn'">Login</button>
+            <br><br>
+        </form>
+
+        <form ngNativeValidate #sign="ngForm" (ngSubmit)="onSignUp(sign.value)" id="register" [ngClass]="'form'">
+            <input type="text" name="userName" ngModel [ngClass]="'input'" placeholder="Username" required>
+            <input type="email" name="emailId" ngModel [ngClass]="'input'" placeholder="Email Id" required>
+            <input type="password" name="password" ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [ngClass]="'input'"
+                placeholder="Password" required
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+            <button type="submit" [ngClass]="'btn'" name='reg_user'>Sign up</button>
+        </form>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>

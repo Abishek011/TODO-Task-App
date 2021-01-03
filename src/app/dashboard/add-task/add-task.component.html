@@ -1,0 +1,16 @@
+<div class="login-box">
+    <h2>Task</h2>
+    <form ngNativeValidate (ngSubmit)="addTask(taskName.value,taskDescription.value)">
+      <div class="user-box">
+        <input type="text" #taskName  required>
+        <label>Task Name :</label>
+      </div>
+      <div class="user-box">
+        <input type="text" #taskDescription required>
+        <label>Task Description :</label>
+      </div>
+      <button type="submit">
+        Add Task
+      </button>
+    </form>
+  </div>
