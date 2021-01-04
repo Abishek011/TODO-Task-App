@@ -32,7 +32,7 @@
           <div class="container clearfix">
             <div class="people-list" id="people-list">
               <div class="search">
-                <input type="text" placeholder="search" [(ngModel)] = "searchTerm" (ngModelChange) = "search()"/>
+                <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
                 <i class="fa fa-search"></i>
               </div>
               <ul>
@@ -95,10 +95,10 @@
 
                   <li>
                     <div class="message-data">
-                      <span class="message-data-name"> Task Added Time</span>
+                      <span class="message-data-name"> Task Modified Time</span>
                     </div>
                     <div class="message my-message">
-                      {{currentTaskAddedTime}}
+                      {{currentTaskAddedTime | date:'EEEE, MMMM d, y, h:mm:ss a'}}
                     </div>
                   </li>
 
@@ -106,23 +106,30 @@
                     <div class="message-data">
                       <span class="message-data-name">Task Status</span>
                     </div>
-                    <div>
-                      <button class="btn btn-primary" (click)="changeTaskStatus()">{{currentTaskStatus}}</button>
+                    <div class="starus">
+                      <button class="btn btn-primary">{{currentTaskStatus}}</button>
                     </div>
                   </li>
                   <li>
                     <div class="message-data">
                       <span class="message-data-name"> Task Action Available</span>
                     </div>
-                    <button class="btn btn-danger" (click)="deleteTask(currentTaskName)" style='margin-right:16px'>Delete</button>
-                    <button class="btn btn-danger" (click)="changeTaskStatus()"style='margin-right:16px'>{{taskStatus}}</button>
+                    <div>
+                      <button class="btn btn-danger " (click)="deleteTask(currentTaskName)"
+                        style='margin-right:16px;'>Delete</button>
+                      <button class="btn btn-danger" (click)="changeTaskStatus()"
+                        style='margin-right:16px'>{{taskStatus}}</button>
+                    </div>
                   </li>
-
+                  <div class="container__item">
+                    <form class="form">
+                      <input type="email" class="form__field" #AddedDescription placeholder="Add descriptions to the Task" />
+                      <button type="button" class="btn btn-primary btn--inside uppercase" (click)=addDescription(AddedDescription.value)>Add</button>
+                    </form>
+                  </div>
                 </ul>
-
               </div> <!-- end chat-history -->
             </div> <!-- end chat -->
-
           </div> <!-- end container -->
           <!-- 
               <script id="message-template" type="text/x-handlebars-template">

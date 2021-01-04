@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { allowedNodeEnvironmentFlags } from 'process';
 import { UserComponent } from 'src/app/user/user.component';
 import { UserService } from 'src/app/user/user.service';
+import { AddTaskComponent } from '../add-task/add-task.component';
 import { DashboardComponent } from '../dashboard.component';
 import { DashboardService } from '../dashboard.service';
 
@@ -69,9 +70,9 @@ export class ViewTaskComponent implements OnInit {
       {
         window.location.reload();
       }
-    });
-    
+    }); 
   }
+
 
   searchTerm;
   taskCopy;
@@ -84,6 +85,16 @@ export class ViewTaskComponent implements OnInit {
     this.viewSelectedTask(this.tasks[0]);
 }
 
+async addDescription(AddedDescription){
+  await this.deleteTask(this.currentTaskName);
+  this.dashboardService.addTask(this.currentTaskName,this.currentTaskDescription+'.'+AddedDescription).subscribe(data=>{
+    console.log('raerdsa',data);
+    if(this.serverResponse.Message.includes("Task Added successfully")){
+      window.location.reload();
+    }
+  });
+}
+
   ngOnInit(): void {
     this.dashboardService.viewTasks().subscribe(data=>{
       this.tasks=data.body;
@@ -93,6 +104,7 @@ export class ViewTaskComponent implements OnInit {
       this.viewSelectedTask(this.tasks[0]);
     },response=>{
       if(response.status==401){
+        alert("Unauthorized");
         this.router.navigate(["user"]);
         this.userService.isNavigated=true;
       }

@@ -14,16 +14,17 @@ i {
 }
 
 .cont {
-    padding-top: 1cm;
-    padding-left: 20%;
-    width: 35cm;
+    padding-top: 0cm;
+    padding-left: 10%;
+    width: 100%;
 }
 
 .card {
     border-width: 400;
     transition: all .2s;
     margin-top: 5mm;
-    width: 30cm;
+    width: 99%;
+    float: left;
     height: 19cm;
 }
 
@@ -174,16 +175,17 @@ i {
     background-color: #fff
 } 
 
- *, *:before, *:after {
-	 box-sizing: border-box;
+*, *:before, *:after {
+	 box-sizing:border-box;
 }
  .delete{
      right: -15cm;
  }
  .container {
     height: 100%;
-	 width: 100%;
-	 background: #373a47;
+     width: 100%;
+     max-width: 100%;
+	 background: #ffffff;
      border-radius: 5px;
 }
 .list{
@@ -192,21 +194,28 @@ i {
  .people-list {
 	 width: 260px;
      float: left;
-     overflow: hidden;
+     overflow-y: scroll hidden;
 
 }
  .people-list .search {
      padding: 20px;
      height: auto;
+     border-radius: 2mm;
 }
- .people-list input {
+.people-list input::placeholder{
+    color: rgb(255, 255, 255);
+    border-bottom: black;
+}
+ .people-list input  {
 	 border-radius: 3px;
 	 border: none;
 	 padding: 14px;
 	 color: rgb(0, 0, 0);
 	 background: #ffffff;
 	 width: 90%;
-	 font-size: 14px;
+     font-size: 14px;
+     color: rgba(255, 255, 255, 0.938);
+     background-color: rgb(38, 82, 105);
 }
  .people-list .fa-search {
 	 position: relative;
@@ -217,18 +226,26 @@ i {
      overflow: hidden;
 }
  .people-list ul li {
+     padding-top: 10px;
      padding-left: 20px;
      padding-bottom: 20px;
+     margin-bottom: 1mm;
+     background-color: #373a47;
+     border-radius: 2mm;
+     border-right:lightslategray solid 2mm;
 }
  .people-list img {
-	 float: left;
+     float: left;
+     padding-top: 2mm;
 }
  .people-list .about {
 	 float: left;
-	 margin-top: 8px;
+     margin-top: 8px;
+     border-radius: 2mm;
 }
  .people-list .about {
-	 padding-left: 8px;
+     padding-left: 8px;
+     padding-right: 4px;
 }
  .people-list .status {
 	 color: #92959e;
@@ -239,20 +256,31 @@ i {
     text-shadow:5px #2fe6f0be;
 }
 .name {
-    color: beige;
+    color:floralwhite;
+}
+.name:hover{
+    color:lightskyblue;
+}
+.starus{
+    padding-bottom: 18px;
 }
  .chat {
-	 width: 75.5%;
+	 width: 76.65%;
 	 float: left;
-	 background: #f2f5f8;
+	 background: #ffffff;
 	 border-top-right-radius: 5px;
 	 border-bottom-right-radius: 5px;
-	 color: #434651;
+     color: #434651;
+     padding-left: 1cm;
+     border-left: 2px dashed #4346517a;
+}
+.chat::after{
+    box-sizing: border-box;
 }
  .chat .chat-header {
      padding: 20px;
      position:static;
-	 border-bottom: 2px solid white;
+	 border-bottom: 2px solid rgb(0, 0, 0);
 }
  .chat .chat-header img {
 	 float: left;
@@ -276,11 +304,12 @@ i {
 	 margin-top: 12px;
 }
  .chat .chat-history {
-	 padding: 30px 30px 20px;
-	 border-bottom: 2px solid white;
-	 overflow-y: scroll;
+	 padding: 40px 30px 40px;
+	 border-bottom: 1px solid rgb(0, 0, 0);
+	 overflow-y: scroll hidden;
      height: 100%;
-     
+     width: 100%;
+    border-left:  black;
 }
  .chat .chat-history .message-data {
 	 margin-bottom: 15px;
@@ -379,4 +408,24 @@ i {
 	 float: right;
 }
 
+.clearfix{
+    padding-left: 0;
+}
+
+.container.clearfix{
+    margin: inherit inherit;
+}
  
+.btn--inside {
+    margin-left: 4mm;
+}
+.form__field {
+    width: 65%;
+    margin-left: 4mm;
+    color: #200505;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    border-bottom: .5mm dashed black;
+    margin-top: 1cm;
+}
