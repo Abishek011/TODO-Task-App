@@ -3,7 +3,7 @@ form{
 }
   .login-box {
     margin-top: 2%;
-    margin-left: 10%;
+    margin-left: 300px;
     width: 80%;  
     height: unset; 
     padding: 40px;
@@ -28,7 +28,7 @@ form{
   
   .login-box .user-box input {
     word-break: break-word;
-    width: 90%;
+    width: 95%;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -37,12 +37,13 @@ form{
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
-    background: transparent;
+    background: rgba(41, 34, 34, 0.473);
+    border-radius: 2mm;
   }
   
   .login-box .user-box textarea {
     display: block;
-    width: 90%;
+    width: 95%;
     overflow: hidden;
     resize: both;
     padding: 10px 0;
@@ -53,11 +54,25 @@ form{
     border: none;
     border-bottom: 1px solid #fff;
     outline: none;
-    background: transparent;
+    background: rgba(41, 34, 34, 0.473);
+    border-radius: 2mm;
   }
   .login-box .user-box label {
     position: absolute;
     top:0;
+    left: 0;
+    padding: 2px 2px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+    border-bottom: 2px solid;
+    border-bottom-style: dashed white;
+  }
+
+  .login-box .user-box .lab {
+    position: absolute;
+    top:-12mm;
     left: 0;
     padding: 2px 2px;
     font-size: 16px;

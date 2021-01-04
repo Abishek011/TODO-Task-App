@@ -15,7 +15,7 @@ i {
 
 .cont {
     padding-top: 0cm;
-    padding-left: 10%;
+    padding-left:20%;
     width: 100%;
 }
 
@@ -194,13 +194,14 @@ i {
  .people-list {
 	 width: 260px;
      float: left;
-     overflow-y: scroll hidden;
-
+     overflow-y: scroll;
 }
  .people-list .search {
+     position: fixed;
      padding: 20px;
      height: auto;
      border-radius: 2mm;
+     border-bottom: 0.1px solid rgba(0, 0, 0, 0.582);
 }
 .people-list input::placeholder{
     color: rgb(255, 255, 255);
@@ -222,7 +223,7 @@ i {
      left: -25px;
 }
  .people-list ul {
-     padding: 20px;
+     padding: 26px;
      overflow: hidden;
 }
  .people-list ul li {
@@ -250,6 +251,17 @@ i {
  .people-list .status {
 	 color: #92959e;
 }
+.currentTasks{
+    margin-right: 5cm;
+    margin-top: 2.4cm;
+    height: 12.18cm;
+    overflow-y: scroll;
+    position: absolute;
+    border-radius: 2mm;
+}
+::-webkit-scrollbar{
+    display: none;
+}
 .currentTask :hover{
     color: cadetblue;
     cursor:pointer;
@@ -265,6 +277,7 @@ i {
     padding-bottom: 18px;
 }
  .chat {
+     margin-left: 20%;
 	 width: 76.65%;
 	 float: left;
 	 background: #ffffff;

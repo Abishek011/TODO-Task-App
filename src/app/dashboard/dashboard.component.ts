@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) {  }
+  constructor(private router:Router,private dashboardService:DashboardService) {  }
 
   viewTasks:boolean =true;
   profile:boolean=false;
@@ -24,6 +25,16 @@ export class DashboardComponent implements OnInit {
     this.viewTasks=false;
     this.profile=true;
     this.addTask=false;
+  }
+
+  sortByTime(){
+    localStorage.setItem("sortByTime","true");
+    location.reload();
+  }
+
+  sortByName(){
+    localStorage.setItem("sortByName","true");
+    location.reload();
   }
 
   logOut(){

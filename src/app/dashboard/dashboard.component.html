@@ -1,4 +1,4 @@
-<div class="area"></div>
+<!-- <div class="area"></div>
 <nav class="main-menu">
     <ul>
         <li>
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 
- -->
+ 
     </ul>
         <ul class="logout">
             <li>
@@ -82,7 +82,33 @@
                 </a>
             </li>
         </ul>
+</nav> -->
+
+<nav class="sidenav">
+    <ul class="main-buttons">
+      <li>
+        <i class="fa fa-home fa-2x"></i>
+        Dashboard 
+      </li>
+      <li>
+        <i class="fa fa-laptop fa-2x"></i>
+        Profile
+      </li>
+      <li>
+        <i class="fa fa-circle fa-2x"></i>
+         All Task
+         <ul class="hidden">
+          <li (click)="viewAllTasks()" >View All Task</li>
+          <li style="cursor:initial;">Sort by </li>
+          <ul>
+              <li (click)="sortByName()" >Task Name</li>
+              <li (click)="sortByTime()" >Modified Time</li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
 </nav>
+
 <!-- Profile -->
 <div *ngIf=profile>
     <app-profile></app-profile>

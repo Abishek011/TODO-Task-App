@@ -17,7 +17,6 @@ export class DashboardService {
   
   private changeTaskStatus_url="https://app--todo.herokuapp.com/user/dashBoard/changeTaskStatus";
 
-  
   userAuthorizationToken=localStorage.getItem('userAuthorizationToken');
 
   private httpOptions = {

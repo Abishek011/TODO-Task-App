@@ -7,34 +7,13 @@
       </div>
       <div class="scroll-area-sm">
         <div class="ps-show-limits">
-          <!--<div style="position:relative;" class="ps ps--active-y">
-           <div class="ps-content">
-               <ul class=" list-group list-group-flush">
-                    <div *ngFor= "let task of tasks">
-                  <li class="list-group-item">
-                    <div class="todo-indicator bg-success"></div>
-                    <div class="widget-content p-0">
-                      <div class="widget-content-wrapper">
-                        <div class="widget-content-left flex2">
-                          <div class="widget-heading">{{task.taskName}}</div>
-                          <div class="widget-subheading">Added at {{task.taskAddedTime}}</div>
-                          <div class="widget-subheading">Task Details : {{task.taskDescription}}</div>
-                        </div>
-                        <div class="widget-content-right"><button
-                            class="border-0 btn-transition btn btn-outline-danger" (click)="deleteTask(task.taskName)"><i class="fa fa-trash"></i>
-                          </button> </div>
-                      </div>
-                    </div>
-                  </li>
-                </div>
-                </ul> -->
-
           <div class="container clearfix">
             <div class="people-list" id="people-list">
               <div class="search">
                 <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
                 <i class="fa fa-search"></i>
               </div>
+              <div  class="currentTasks">
               <ul>
                 <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
                   <li class="clearfix">
@@ -42,37 +21,25 @@
                       src="https://www.ntaskmanager.com/wp-content/themes/ntask-website/images/nTask-Logo-Board-01.png"
                       style="height: 1cm;" alt="avatar" />
                     <div class="about">
-                      <div class="name">{{task.taskName}}</div>
+                      <div class="name">{{task.taskName }}</div>
                       <div class="status">
                         <i class="fa fa-circle online"></i> {{task.taskStatus}}
                       </div>
                     </div>
                   </li>
-                </div><!-- hegkhefhsgsedfhgjs -->
+                </div>
               </ul>
+              </div>
             </div>
             <div class="chat">
               <div class="chat-header clearfix">
                 <img src="/assets/task_logo.png" style="height: 1.5cm;border-radius: 70%;" alt="avatar" />
-
                 <div class="chat-about">
                   <div class="chat-with">{{currentTaskName}}</div>
                 </div>
               </div>
-
               <div class="chat-history">
                 <ul>
-                  <!-- <li class="clearfix">
-                          <div class="message-data align-right">
-                            <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-                            <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-                            
-                          </div>
-                          <div class="message other-message float-right">
-                            Hi Vincent, how are you? How is the project coming along?
-                          </div>
-                        </li> -->
-
                   <li>
                     <div class="message-data">
                       <span class="message-data-name"> Task Description</span>
@@ -81,18 +48,6 @@
                       {{currentTaskDescription}}
                     </div>
                   </li>
-
-                  <!-- <li class="clearfix">
-                          <div class="message-data align-right">
-                            <span class="message-data-time" >10:14 AM, Today</span> &nbsp; &nbsp;
-                            <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-                            
-                          </div>
-                          <div class="message other-message float-right">
-                            Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
-                          </div>
-                        </li> -->
-
                   <li>
                     <div class="message-data">
                       <span class="message-data-name"> Task Modified Time</span>
@@ -101,7 +56,6 @@
                       {{currentTaskAddedTime | date:'EEEE, MMMM d, y, h:mm:ss a'}}
                     </div>
                   </li>
-
                   <li>
                     <div class="message-data">
                       <span class="message-data-name">Task Status</span>
@@ -123,40 +77,16 @@
                   </li>
                   <div class="container__item">
                     <form class="form">
-                      <input type="email" class="form__field" #AddedDescription placeholder="Add descriptions to the Task" />
-                      <button type="button" class="btn btn-primary btn--inside uppercase" (click)=addDescription(AddedDescription.value)>Add</button>
+                      <input type="email" class="form__field" #AddedDescription
+                        placeholder="Add descriptions to the Task" />
+                      <button type="button" class="btn btn-primary btn--inside uppercase"
+                        (click)=addDescription(AddedDescription.value)>Add</button>
                     </form>
                   </div>
                 </ul>
               </div> <!-- end chat-history -->
             </div> <!-- end chat -->
           </div> <!-- end container -->
-          <!-- 
-              <script id="message-template" type="text/x-handlebars-template">
-                <li class="clearfix">
-                  <div class="message-data align-right">
-                    <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
-                    <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-                  </div>
-                  <div class="message other-message float-right">
-                    {{messageOutput}}
-                  </div>
-                </li>
-              </script>
-              
-              <script id="message-response-template" type="text/x-handlebars-template">
-                <li>
-                  <div class="message-data">
-                    <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
-                    <span class="message-data-time">{{time}}, Today</span>
-                  </div>
-                  <div class="message my-message">
-                    {{response}}
-                  </div>
-                </li>
-              </script> 
-            </div>
-          </div>-->
         </div>
       </div>
       <div class="d-block text-right card-footer">

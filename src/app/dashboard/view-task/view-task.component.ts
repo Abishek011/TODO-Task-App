@@ -82,15 +82,26 @@ export class ViewTaskComponent implements OnInit {
     this.tasks = this.taskCopy.filter(function(tag) {
         return tag.taskName.includes(term);
     }); 
+    if(this.tasks.length!=0){
     this.viewSelectedTask(this.tasks[0]);
+  }
+    else{
+      this.viewSelectedTask({
+        taskName:"No Such task found",
+        taskDescription:"The task that you are searching is not found in the list of tasks",
+        taskAddedTime:new Date(),
+        taskStatus:"Task Not found",
+      });
+    }
 }
 
 async addDescription(AddedDescription){
   await this.deleteTask(this.currentTaskName);
-  this.dashboardService.addTask(this.currentTaskName,this.currentTaskDescription+'.'+AddedDescription).subscribe(data=>{
+  this.dashboardService.addTask(this.currentTaskName,this.currentTaskDescription+AddedDescription).subscribe(data=>{
     console.log('raerdsa',data);
+    this.serverResponse=data;
     if(this.serverResponse.Message.includes("Task Added successfully")){
-      window.location.reload();
+      console.log(data);
     }
   });
 }
@@ -102,6 +113,12 @@ async addDescription(AddedDescription){
       this.tasks=this.tasks.tasks;
       this.taskCopy=this.tasks;
       this.viewSelectedTask(this.tasks[0]);
+      if(localStorage.getItem('sortByName')=='true'){
+        this.tasks.sort((a,b) => a.taskName.localeCompare(b.taskName));
+      }
+      if(localStorage.getItem('sortByTime')=='true'){
+        this.tasks.sort((a,b) => a.taskAddedTime.localeCompare(b.taskAddedTime));
+      }
     },response=>{
       if(response.status==401){
         alert("Unauthorized");
