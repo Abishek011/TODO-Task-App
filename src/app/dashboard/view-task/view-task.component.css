@@ -1,11 +1,98 @@
- @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
+/* 
+.view{
+    display: grid;
+    grid-template-columns: .45fr 2fr;
+    grid-gap: 1cm;
+    background-color: rgba(66, 128, 128, 0.411);
+    width: inherit;
+    height: auto;
+}
+
+.viewhead{
+    position: static;
+    display: grid;
+    grid-template-columns: .3fr 2fr;
+    top: 0%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
+
+.search{
+    display: inline-table;
+    padding: 6mm;
+    width: inherit;
+    background-color: white
+
+}
+
+.search input{
+    border-radius: 3px;
+	 border-bottom: 1px whitesmoke;
+	 padding: 14px;
+	 color: rgb(0, 0, 0);
+	 background: #ffffff;
+     font-size: 14px;
+     color: rgba(255, 255, 255, 0.938);
+     background-color: rgb(38, 82, 105);
+}
+.search input::placeholder{
+    color: rgb(255, 255, 255);
+    border-bottom: black;
+}
+
+.taskname{
+    height: 2.5cm;
+    width: 100%;
+    border-bottom: 1px black solid;
+}
+
+.taskname i{
+    font-style:normal;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 8mm;
+}
+
+.currentTasks{
+    background-color: rgba(43, 226, 141, 0.438);
+    height: 100%;
+    width: 100%;
+}
+
+.search ul{
+    height: 100%;
+    padding-top: 5mm;
+    padding-left: 0;
+}
+.tasklist{
+    color: cornsilk;
+    background-color: #373a47;
+    border-radius: 2mm;
+    padding-left: 1cm;
+    margin-left: 3mm;
+}
+
+.currentTasks :hover{
+background-color: green;
+border-left: 1cm solid cornflowerblue;
+}
+
+.tasklist i{
+    font-style: normal;
+    margin-left: 1mm;
+}
+ */
+
+
+
 i {
-    font-style: italic
+    font-style: normal;
 }
 
 .tasklist{
@@ -210,7 +297,7 @@ i {
  .people-list input  {
 	 border-radius: 3px;
 	 border: none;
-	 padding: 14px;
+	 padding: 8%;
 	 color: rgb(0, 0, 0);
 	 background: #ffffff;
 	 width: 90%;

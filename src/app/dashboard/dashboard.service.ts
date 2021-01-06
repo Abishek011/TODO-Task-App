@@ -7,8 +7,6 @@ import { UserService } from '../user/user.service';
 })
 export class DashboardService {
 
-  constructor(private userService:UserService,private http:HttpClient) { }
-
   private viewTask_url="https://app--todo.herokuapp.com/user/dashBoard/viewTasks";
 
   private addTask_url="https://app--todo.herokuapp.com/user/dashBoard/addTask";
@@ -26,18 +24,20 @@ export class DashboardService {
     body:undefined,
   };
 
+  constructor(private userService:UserService,private http:HttpClient) { }
+
   viewTasks(){
     return this.http.post(this.viewTask_url,{userAuthCookie :this.userAuthorizationToken},this.httpOptions);
   }
 
-  addTask(taskName,taskDescription){
+  addTask(taskName:String,taskDescription:String){
     return this.http.post(this.addTask_url,{"taskName":taskName,
     "taskDescription":taskDescription,
     userAuthCookie :this.userAuthorizationToken,
   },this.httpOptions);
   }
 
-  deleteTask(taskName){
+  deleteTask(taskName:String){
     this.httpOptions.body={
       userAuthCookie :this.userAuthorizationToken,
       taskName:taskName,
@@ -45,11 +45,12 @@ export class DashboardService {
     return this.http.delete(this.deleteTask_url,this.httpOptions);
   }
 
-  changeTaskStatus(taskName){
+  changeTaskStatus(taskName:String){
     return this.http.post(this.changeTaskStatus_url,{
       userAuthCookie :this.userAuthorizationToken,
       taskName:taskName,
     },this.httpOptions);
   }
+
   
 }

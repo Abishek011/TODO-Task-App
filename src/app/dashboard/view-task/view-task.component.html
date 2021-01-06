@@ -1,4 +1,49 @@
-<div class="row d-flex justify-content-center cont">
+<!-- <div class="viewhead">
+  <div class="search">
+    <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
+    <ul>
+      <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
+        <li class="tasklist">
+          <img src="https://www.ntaskmanager.com/wp-content/themes/ntask-website/images/nTask-Logo-Board-01.png"
+            style="height: 1cm;" alt="avatar" />
+            <i class="name">{{task.taskName }}</i>
+            <div class="status">
+              <i style="color: rgba(54, 180, 92, 0.644);"></i> {{"-- "+task.taskStatus}}
+            </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="taskname">
+    <img src="/assets/task_logo.png" style="height: 1.5cm;border-radius: 70%;margin-top: 3mm;" alt="avatar" />
+    <i>{{currentTaskName}}</i>
+  </div>
+</div> -->
+<!-- <div class="people-list" id="people-list">
+  <div class="search">
+    <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
+    <i class="fa fa-search"></i>
+  </div>
+  <div  class="currentTasks">
+  <ul>
+    <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
+      <li class="clearfix">
+        <img
+          src="https://www.ntaskmanager.com/wp-content/themes/ntask-website/images/nTask-Logo-Board-01.png"
+          style="height: 1cm;" alt="avatar" />
+        <div class="about">
+          <div class="name">{{task.taskName }}</div>
+          <div class="status">
+            <i class="fa fa-circle online"></i> {{task.taskStatus}}
+          </div>
+        </div>
+      </li>
+    </div>
+  </ul>
+  </div>
+</div> -->
+
+<div class="row d-flex justify-content-center cont" >
   <div class="tasklist">
     <div class="card-hover-shadow-2x mb-3 card">
       <div class="card-header-tab card-header">
@@ -13,22 +58,23 @@
                 <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
                 <i class="fa fa-search"></i>
               </div>
-              <div  class="currentTasks">
-              <ul>
-                <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
-                  <li class="clearfix">
-                    <img
-                      src="https://www.ntaskmanager.com/wp-content/themes/ntask-website/images/nTask-Logo-Board-01.png"
-                      style="height: 1cm;" alt="avatar" />
-                    <div class="about">
-                      <div class="name">{{task.taskName }}</div>
-                      <div class="status">
-                        <i class="fa fa-circle online"></i> {{task.taskStatus}}
+              
+              <div class="currentTasks">
+                <ul>
+                  <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
+                    <li class="clearfix">
+                      <img
+                        src="https://www.ntaskmanager.com/wp-content/themes/ntask-website/images/nTask-Logo-Board-01.png"
+                        style="height: 1cm;" alt="avatar" />
+                      <div class="about">
+                        <div class="name">{{task.taskName }}</div>
+                        <div class="status">
+                          <i class="fa fa-circle online"></i> {{task.taskStatus}}
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                </div>
-              </ul>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
             <div class="chat">
@@ -36,6 +82,7 @@
                 <img src="/assets/task_logo.png" style="height: 1.5cm;border-radius: 70%;" alt="avatar" />
                 <div class="chat-about">
                   <div class="chat-with">{{currentTaskName}}</div>
+                  <div class="chat-num-message"> {{currentTaskAddedTime | date:'EEEE, MMMM d, y, h:mm:ss a'}}</div>
                 </div>
               </div>
               <div class="chat-history">
@@ -48,14 +95,7 @@
                       {{currentTaskDescription}}
                     </div>
                   </li>
-                  <li>
-                    <div class="message-data">
-                      <span class="message-data-name"> Task Modified Time</span>
-                    </div>
-                    <div class="message my-message">
-                      {{currentTaskAddedTime | date:'EEEE, MMMM d, y, h:mm:ss a'}}
-                    </div>
-                  </li>
+                  
                   <li>
                     <div class="message-data">
                       <span class="message-data-name">Task Status</span>
@@ -69,7 +109,7 @@
                       <span class="message-data-name"> Task Action Available</span>
                     </div>
                     <div>
-                      <button class="btn btn-danger " (click)="deleteTask(currentTaskName)"
+                      <button class="btn btn-danger " (click)="deleteTask(currentTaskName,true)"
                         style='margin-right:16px;'>Delete</button>
                       <button class="btn btn-danger" (click)="changeTaskStatus()"
                         style='margin-right:16px'>{{taskStatus}}</button>

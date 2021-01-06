@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
-
   isNavigated:boolean;
 
   private signUp_url="https://app--todo.herokuapp.com/user";
@@ -19,6 +17,8 @@ export class UserService {
     withCredentials: false,
     observe: 'response' as 'response'
   };
+
+  constructor(private http:HttpClient) { }
 
   userLogIn(logInDetails)
   {

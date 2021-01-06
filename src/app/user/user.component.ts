@@ -10,9 +10,18 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit {
 
+  loginSwitch: boolean = true;
+  serverResponse:any;
+
   constructor(private userService:UserService,private router:Router) { }
 
-  loginSwitch: boolean = true;
+  ngOnInit(): void {
+    if(this.userService.isNavigated)
+    {
+      this.refreshOnce();
+    }
+  }
+
   register() {
     var x = document.getElementById("login");
     var y = document.getElementById("register");
@@ -30,8 +39,6 @@ export class UserComponent implements OnInit {
     y.style.left = "450px";
     this.loginSwitch = !this.loginSwitch;
   }
-
-  serverResponse;
 
   onLogIn(form:NgForm){
     this.userService.userLogIn(form).subscribe(data=>{
@@ -60,13 +67,6 @@ export class UserComponent implements OnInit {
 
   refreshOnce(){
     window.location.reload();
-  }
-
-  ngOnInit(): void {
-    if(this.userService.isNavigated)
-    {
-      this.refreshOnce();
-    }
   }
 
 }

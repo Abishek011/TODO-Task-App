@@ -11,7 +11,10 @@ export class AddTaskComponent implements OnInit {
 
   constructor(private dashboardService:DashboardService,private dashboard:DashboardComponent) { }
 
-  serverResponse;
+  ngOnInit(): void {
+  }
+
+  serverResponse:any;
 
   addTask(taskName,taskDescription){
     this.dashboardService.addTask(taskName,taskDescription).subscribe(data=>{
@@ -23,7 +26,6 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  
 
 }
