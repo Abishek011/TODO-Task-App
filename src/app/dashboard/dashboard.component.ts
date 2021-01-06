@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +7,7 @@ import { DashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router,private dashboardService:DashboardService) {  }
+  constructor() {  }
 
   
   ngOnInit(): void {

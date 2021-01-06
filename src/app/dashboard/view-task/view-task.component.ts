@@ -1,12 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { allowedNodeEnvironmentFlags } from 'process';
-import { UserComponent } from 'src/app/user/user.component';
-import { UserService } from 'src/app/user/user.service';
-import { AddTaskComponent } from '../add-task/add-task.component';
+import { ServiceService } from 'src/app/service.service';
 import { DashboardComponent } from '../dashboard.component';
-import { DashboardService } from '../dashboard.service';
 import { task } from 'src/app/moduleInterfaces'
 
 @Component({
@@ -22,7 +17,7 @@ export class ViewTaskComponent implements OnInit {
   currentTaskDescription:String;
   currentTaskAddedTime:String;
   currentTaskStatus:String;
-  isDone: boolean = false;
+  isDone: boolean = true;
   taskStatus:String;
   searchTerm:String;
   taskCopy:task[];
@@ -30,8 +25,8 @@ export class ViewTaskComponent implements OnInit {
   editTaskDescription:String;
 
   constructor(private dashboard: DashboardComponent,
-    private dashboardService: DashboardService,
-    private userService: UserService,
+    private dashboardService: ServiceService,
+    private userService: ServiceService,
     private router: Router) {
 
     localStorage.removeItem("isDone");
@@ -129,6 +124,42 @@ export class ViewTaskComponent implements OnInit {
     await this.deleteTask(this.currentTaskName, true);
     localStorage.setItem("isDone", "true");
     this.ngOnInit();
+  }
+
+  sort(){
+    if(this.isDone){
+      console.log(this.isDone);
+    this.tasks.sort((a,b) =>{
+      if(a.taskName<b.taskName){
+      return -1;
+      }
+      else if(a.taskName<b.taskName){
+        return +1;
+        }
+        else{
+          return 0;
+        }
+    });
+    this.viewSelectedTask(this.tasks[0]);
+    this.isDone=!this.isDone;
+  }
+    else{
+      console.log(this.isDone);
+      this.tasks.sort((a,b) =>{
+        if(a.taskName<b.taskName){
+        return 1;
+        }
+        else if(a.taskName>b.taskName){
+          return -1;
+          }
+          else{
+            return 0;
+          }
+      });
+      this.viewSelectedTask(this.tasks[0]);
+    this.isDone=!this.isDone;
+    }
+
   }
 
 }

@@ -58,7 +58,6 @@
                 <input type="text" placeholder="search" [(ngModel)]="searchTerm" (ngModelChange)="search()" />
                 <i class="fa fa-search"></i>
               </div>
-              
               <div class="currentTasks">
                 <ul>
                   <div (click)="viewSelectedTask(task)" class="currentTask" *ngFor="let task of tasks">
@@ -130,6 +129,7 @@
         </div>
       </div>
       <div class="d-block text-right card-footer">
+        <button class="tname btn btn-danger  " (click)="sort()">Task Name&nbsp;&nbsp;&nbsp;<i class="arrow up"></i></button>
         <button class="btn btn-primary" (click)="addTask()">Add Task</button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router} from '@angular/router';
-import { UserService } from './user.service';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   loginSwitch: boolean = true;
   serverResponse:any;
 
-  constructor(private userService:UserService,private router:Router) { }
+  constructor(private userService:ServiceService,private router:Router) { }
 
   ngOnInit(): void {
     if(this.userService.isNavigated)

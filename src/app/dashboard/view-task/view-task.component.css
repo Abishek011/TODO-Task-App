@@ -322,6 +322,30 @@ i {
      border-radius: 2mm;
      border-right:lightslategray solid 2mm;
 }
+
+.card-footer .tname{
+    padding: 5px 35px;
+    display: inline;
+    font-weight:normal;
+    background-color: rgb(173, 35, 35);
+    color: white;
+    margin-right: 84%;
+}
+
+.arrow {
+    border: solid rgb(255, 255, 255);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-132deg);
+    -webkit-transform: rotate(-132deg);
+  }
+
+  .tname :hover{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
  .people-list img {
      float: left;
      padding-top: 2mm;
@@ -517,7 +541,8 @@ i {
 }
  
 .btn--inside {
-    margin-left: 4mm;
+    margin-left:auto;
+    
 }
 .form__field {
     width: 65%;
