@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {  }
+  constructor(private router:Router,private service:ServiceService) {  }
 
-  
   ngOnInit(): void {
   }
 
@@ -41,35 +42,16 @@ export class DashboardComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem("userAuthorizationToken");
-    window.location.reload();
+    this.service.isNavigated=true;
+    this.router.navigate(['/']);
   }
 
-
+/* 
   status1:boolean=true;
   status2:boolean=false;
 
   sidebar(){
     this.status1=!this.status1;
     this.status2=!this.status2;
-  }
-
-  /* 
-
-  $(function() {
-    $("#fullPage").click(function() {
-      $("#rightWrapper").toggleClass("full-page");
-      $("#header").toggleClass("full-page");
-    });
-  })
-  
-  $(function() {
-    $("#listView li").click(function () {
-      if ( $("#listView li").hasClass("list-item-active") ) {
-        $("#listView li").removeClass("list-item-active");
-      }
-      $(this).addClass("list-item-active");
-    });
-  });
-   */
-
+  } */
 }

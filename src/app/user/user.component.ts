@@ -16,8 +16,7 @@ export class UserComponent implements OnInit {
   constructor(private userService:ServiceService,private router:Router) { }
 
   ngOnInit(): void {
-    if(this.userService.isNavigated)
-    {
+    if(this.userService.isNavigated){
       this.refreshOnce();
     }
   }
@@ -48,6 +47,8 @@ export class UserComponent implements OnInit {
       {
         localStorage.setItem("userAuthorizationToken",this.serverResponse.cookie);
         this.router.navigate(['user/dashBoard']);
+      }else{
+        alert(this.serverResponse.message);
       }
     });
   }
@@ -60,13 +61,13 @@ export class UserComponent implements OnInit {
         this.onLogIn(form);
       }
       else{
-        alert("User already exist");
+        alert(this.serverResponse.message);
       }
     })
   }
 
   refreshOnce(){
-    window.location.reload();
+    this.userService.isNavigated=false;
   }
 
 }

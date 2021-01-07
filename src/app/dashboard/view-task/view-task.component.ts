@@ -38,15 +38,11 @@ export class ViewTaskComponent implements OnInit {
       this.tasks = this.serverResponse;
       console.log(this.tasks);
       this.taskCopy = this.tasks;
-      /* if (localStorage.getItem("isSorted") == "true") {
-        
-        localStorage.setItem("isSorted", "fasle");
-      } */
       this.viewSelectedTask(this.tasks[0]);
     }, response => {
       if (response.status == 401) {
         alert("       Login again");
-        this.router.navigate(["user"]);
+        this.router.navigate(["/"]);
         this.userService.isNavigated = true;
       }
     })

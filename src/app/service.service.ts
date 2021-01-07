@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceService {
 
-  isNavigated:boolean;
+  isNavigated:boolean=false;
 
   userEmail;
 
