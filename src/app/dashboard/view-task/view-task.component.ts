@@ -43,7 +43,6 @@ export class ViewTaskComponent implements OnInit {
       if (response.status == 401) {
         alert("       Login again");
         this.router.navigate(["/"]);
-        this.userService.isNavigated = true;
       }
     })
   }

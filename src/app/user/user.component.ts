@@ -39,13 +39,14 @@ export class UserComponent implements OnInit {
     this.loginSwitch = !this.loginSwitch;
   }
 
-  onLogIn(form:NgForm){
+ onLogIn(form:NgForm){
     this.userService.userLogIn(form).subscribe(data=>{
       console.log(data.body);
       this.serverResponse=(data.body);
       if(this.serverResponse.message.includes("logIn Successful"))
       {
         localStorage.setItem("userAuthorizationToken",this.serverResponse.cookie);
+        if(localStorage.getItem("userAuthorizationToken")==this.serverResponse.cookie)
         this.router.navigate(['user/dashBoard']);
       }else{
         alert(this.serverResponse.message);
@@ -67,6 +68,7 @@ export class UserComponent implements OnInit {
   }
 
   refreshOnce(){
+    window.location.reload();
     this.userService.isNavigated=false;
   }
 

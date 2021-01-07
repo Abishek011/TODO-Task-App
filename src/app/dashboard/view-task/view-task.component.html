@@ -129,7 +129,7 @@
         </div>
       </div>
       <div class="d-block text-right card-footer">
-        <button class="tname btn btn-danger sortable " (click)="sort()">Task Name&nbsp;&nbsp;&nbsp;<i [ngClass]='{"arrow":isSorted,"up":!isSorted}' >></i></button>
+        <button class="tname btn btn-danger sortable " (click)="sort()">Task Name&nbsp;&nbsp;&nbsp;<i [ngClass]='{"arrow":!isSorted,"up":isSorted}' >></i></button>
         <button class="btn btn-primary" (click)="addTask()">Add Task</button>
       </div>
     </div>

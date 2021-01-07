@@ -43,6 +43,7 @@ export class ServiceService {
   }
 
   viewTasks(){
+    this.userAuthorizationToken=(localStorage.getItem("userAuthorizationToken"));
     return this.http.post(this.viewTask_url,{userAuthCookie :this.userAuthorizationToken},this.httpOptions);
   }
 
