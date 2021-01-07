@@ -333,17 +333,17 @@ i {
 }
 
 .arrow {
-    border: solid rgb(255, 255, 255);
-    border-width: 0 3px 3px 0;
     display: inline-block;
-    padding: 3px;
+    font-size: large;
     transform: rotate(-132deg);
-    -webkit-transform: rotate(-132deg);
+    -webkit-transform: rotate(-90deg);
   }
 
-  .tname :hover{
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+  .up{
+      display: inline-block;
+    font-size: large;
+    transform: rotate(-132deg);
+    -webkit-transform: rotate(90deg);
   }
 
  .people-list img {

@@ -8,6 +8,8 @@ export class ServiceService {
 
   isNavigated:boolean;
 
+  userEmail;
+
   private signUp_url="https://app--todo.herokuapp.com/user";
 
   private logIn_url="https://app--todo.herokuapp.com/user/login";

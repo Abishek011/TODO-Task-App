@@ -17,7 +17,7 @@ export class ViewTaskComponent implements OnInit {
   currentTaskDescription:String;
   currentTaskAddedTime:String;
   currentTaskStatus:String;
-  isDone: boolean = true;
+  isSorted: boolean = true;
   taskStatus:String;
   searchTerm:String;
   taskCopy:task[];
@@ -28,8 +28,7 @@ export class ViewTaskComponent implements OnInit {
     private dashboardService: ServiceService,
     private userService: ServiceService,
     private router: Router) {
-
-    localStorage.removeItem("isDone");
+    localStorage.removeItem("isSorted");
   }
 
   ngOnInit(): void {
@@ -39,19 +38,10 @@ export class ViewTaskComponent implements OnInit {
       this.tasks = this.serverResponse;
       console.log(this.tasks);
       this.taskCopy = this.tasks;
-      if (localStorage.getItem("isDone") == "true") {
-        this.dashboardService.addTask(this.editTaskName, this.editTaskDescription).subscribe(data => {
-          console.log('raerdsa', data);
-          this.serverResponse = data.body;
-          if (this.serverResponse.Message.includes("Task Added successfully")) {
-            console.log(data);
-          }
-        });
-        localStorage.setItem("isDone", "fasle");
-      }
-      /*  if(localStorage.getItem('sortByTime')=='true'){
-         this.tasks.sort((a,b) => a.taskAddedTime.localeCompare(b.taskAddedTime));
-       } */
+      /* if (localStorage.getItem("isSorted") == "true") {
+        
+        localStorage.setItem("isSorted", "fasle");
+      } */
       this.viewSelectedTask(this.tasks[0]);
     }, response => {
       if (response.status == 401) {
@@ -72,8 +62,18 @@ export class ViewTaskComponent implements OnInit {
     await this.dashboardService.deleteTask(taskName).subscribe(data => {
       this.serverResponse = data.body;
       if (this.serverResponse.Message.includes("Task deleted successfully") && refresh) {
-        this.ngOnInit();
+        location.reload();
+      }else if (this.serverResponse.Message.includes("Task deleted successfully")){
+        this.dashboardService.addTask(this.editTaskName, this.editTaskDescription).subscribe(data => {
+          console.log('raerdsa', data);
+          this.serverResponse = data.body;
+          if (this.serverResponse.Message.includes("Task Added successfully")) {
+            location.reload();
+            alert("Task updated..");
+          }
+        });
       }
+
     })
   }
 
@@ -95,7 +95,7 @@ export class ViewTaskComponent implements OnInit {
       var temp;
       temp = data.body;
       if (temp.Message.includes("Task status updated")) {
-        this.ngOnInit();
+        location.reload();
       }
     });
   }
@@ -121,14 +121,12 @@ export class ViewTaskComponent implements OnInit {
   async addDescription(AddedDescription) {
     this.editTaskName = this.currentTaskName;
     this.editTaskDescription = this.currentTaskDescription + AddedDescription;
-    await this.deleteTask(this.currentTaskName, true);
-    localStorage.setItem("isDone", "true");
-    this.ngOnInit();
+    await this.deleteTask(this.currentTaskName, false);
   }
 
   sort(){
-    if(this.isDone){
-      console.log(this.isDone);
+    if(this.isSorted){
+      console.log(this.isSorted);
     this.tasks.sort((a,b) =>{
       if(a.taskName<b.taskName){
       return -1;
@@ -141,10 +139,10 @@ export class ViewTaskComponent implements OnInit {
         }
     });
     this.viewSelectedTask(this.tasks[0]);
-    this.isDone=!this.isDone;
+    this.isSorted=!this.isSorted;
   }
     else{
-      console.log(this.isDone);
+      console.log(this.isSorted);
       this.tasks.sort((a,b) =>{
         if(a.taskName<b.taskName){
         return 1;
@@ -157,7 +155,7 @@ export class ViewTaskComponent implements OnInit {
           }
       });
       this.viewSelectedTask(this.tasks[0]);
-    this.isDone=!this.isDone;
+    this.isSorted=!this.isSorted;
     }
 
   }

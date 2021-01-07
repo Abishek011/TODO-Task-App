@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 import { DashboardComponent } from '../dashboard.component';
-import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-add-task',
@@ -9,7 +9,7 @@ import { DashboardService } from '../dashboard.service';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor(private dashboardService:DashboardService,private dashboard:DashboardComponent) { }
+  constructor(private dashboardService:ServiceService,private dashboard:DashboardComponent) { }
 
   ngOnInit(): void {
   }
